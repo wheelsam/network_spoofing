@@ -50,8 +50,15 @@ def handle_dhcp_packet(packet):
             speak.Speak("Welcome home Sam")
         if (hostname == "SammyBlesiPhone" and requested_addr == "192.168.1.28"):
             speak.Speak("Hey Sammy you are looking cute as always")
-
-    return
+        if (hostname == "Rosss-iPhone" and requested_addr == "192.168.1.6"):
+            speak.Speak("Uh oh big stupid just got home")
+        if (hostname == "Samsung-Galaxy-S8-active" and requested_addr == "192.168.1.19"):
+            speak.Speak("Uh oh fart face just got home")
+        if (hostname == "XBOXONE" and requested_addr == "192.168.1.22"):
+            speak.Speak("Jack is playing XBOX without you sad face")
+        if (hostname == "aMARica" and requested_addr == "192.168.1.26"):
+            speak.Speak("Jack Loves You Very Much Dont Worry")
+        return
 
 def handle_tcp_packet(packet):
     if packet.haslayer(HTTPRequest):
@@ -73,7 +80,7 @@ def handle_packet(packet):
     if(DHCP in packet):
         handle_dhcp_packet(packet)
     elif(TCP in packet):
-        handle_tcp_packet(packet)
+        # handle_tcp_packet(packet)
 
 if __name__ == "__main__":
     import argparse
